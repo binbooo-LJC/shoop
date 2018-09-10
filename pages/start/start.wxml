@@ -1,0 +1,24 @@
+<!--pages/start/start.wxml-->
+<view class="contain">
+  <view class='loading' wx:if="{{remind}}">
+    <image src='/images/more/loading.gif'></image>
+  </view>
+  <block wx:else>
+  <view class='content'>
+     <image class='title' src='/images/more/title8.png'></image>
+     <view class="user">
+      <image src="{{userinfo.avatarUrl}}" class="logo"></image>
+      <image src='/images/more/wave.png' mode="aspectFill" class="wave1"></image>
+      <image src='/images/more/wave.png' mode="aspectFill" class="wave2"></image>
+     </view>
+     <view style='overflow:hidden'></view>
+     <view class='ft'>
+       <image src='/images/more/confirm-word1.png'></image>
+       <view class='open_index' bindtap='jumpIndex'>
+        <text>进入店铺</text>
+       </view>
+     </view>
+  </view>
+     
+  </block>
+</view>

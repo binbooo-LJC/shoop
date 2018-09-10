@@ -1,0 +1,6 @@
+<!--pages/autologin/index.wxml-->
+<view class='contain'>
+  <text>1、同意当前小程序获取我的微信头像</text>
+  <text>2、同意当前小程序获取我的用户名及其他信息</text>
+  <button open-type='getUserInfo' bindgetuserinfo="onGotUserInfo" type='warn'>授权登录</button>
+</view>

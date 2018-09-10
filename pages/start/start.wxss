@@ -1,0 +1,97 @@
+.contain{
+  background-color: #69C3AA;
+  height: 100%;
+}
+.title{
+  width: 600rpx;
+  height: 200rpx;
+  position: relative;
+  left: 50%;
+  padding-top: 30rpx;
+  margin-left: -300rpx;
+}
+.logo{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -80rpx;
+  margin-top: 50rpx;
+  z-index: 5;
+  animation: sway 10s linear infinite;
+}
+@keyframes sway{
+  0% {transform: translate3d(0,20rpx,0) rotate(-15deg); }
+  17% {transform: translate3d(0,0rpx,0) rotate(25deg); }
+  34% {transform: translate3d(0,-20rpx,0) rotate(-20deg); }
+  50% {transform: translate3d(0,-10rpx,0) rotate(15deg); }
+  67% {transform: translate3d(0,10rpx,0) rotate(-25deg); }
+  84% {transform: translate3d(0,15rpx,0) rotate(15deg); }
+  100% {transform: translate3d(0,20rpx,0) rotate(-15deg); }
+}
+.wave1{
+  width: 2250rpx;
+  height: 260rpx;
+  position: absolute;
+  top: 360rpx;
+  opacity: 0.725;
+  z-index:3;
+  animation: wave1 10s linear infinite;
+  right: 0;
+}
+.wave2{
+  width: 2250rpx;
+  height: 260rpx;
+  position: absolute;
+  top: 360rpx;
+  z-index: 1;
+  opacity: 0.725;
+  animation: wave2 10.25s linear infinite;
+  right: 0;
+  
+}
+
+@keyframes wave1{
+  from {transform: translate3d(125rpx,0,0);}
+  to {transform: translate3d(1125rpx,0,0);}
+}
+@keyframes wave2{
+  from {transform: translate3d(375rpx,0,0);}
+  to {transform: translate3d(1375rpx,0,0);}
+}
+.user{
+  height: 260rpx;
+}
+.ft{
+  background:#fff;
+  z-index: 10;
+  flex: 1;
+   background: -webkit-gradient(linear, left top, left bottom, from(rgba(244,244,244,0)), color-stop(0.1, #f4f4f4), to(#f4f4f4));
+  
+  height: 500rpx;
+}
+.ft image{
+  width: 600rpx;
+  height: 200rpx;
+  position: absolute;
+  z-index: 10;
+  top: 5orpx;
+  left: 25%;
+  margin-left: -80rpx;
+}
+.open_index{
+  position: relative;
+  top: 56%;
+  width: 400rpx;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30rpx;
+  background-color: #f00;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius:100rpx;
+  color: #fff;
+
+    }
+

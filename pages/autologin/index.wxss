@@ -1,0 +1,14 @@
+/* pages/autologin/index.wxss */
+text{
+  display: block;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  padding-left: 40rpx;
+}
+button{
+  margin-top: 10rpx;
+  width: 94%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius:10rpx;
+}
