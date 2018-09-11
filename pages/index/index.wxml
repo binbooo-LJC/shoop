@@ -1,5 +1,6 @@
 <!--pages/index/index.wxml-->
 <view class="contain">
+<!-- 搜素开始 -->
 <view class="search_content">
     <view class='search'>
       <image class='search_img' src='/images/search-pic.png'></image>
@@ -7,14 +8,46 @@
       <button class='search_button'>搜素</button>
     </view>
   </view>
+  <!-- 搜素结束 -->
+  <!-- banner 开始 -->
   <view class="banner">
-    <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-    <swiper-item>
-      <image src="{{item.picUrl}}" class="slide-image" width="355" height="150"/>
-    </swiper-item>
-  </block>
-</swiper>
+    <swiper indicator-dots="{{indicatorDots}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item.picUrl}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
+   <!-- banner 结束 -->
+   <!-- 分类开始 -->
+   <view class='type_contain'>
+      <scroll-view scroll-x="true" class="type_content">
+        <view class="type_box">
+          <view class="type-item">
+            全部
+          </view>
+        </view>
+        <view class="type_box">
+          <view class="type-item">
+            全部
+          </view>
+        </view>
+        <view class="type_box">
+          <view class="type-item">
+            全部
+          </view>
+        </view>
+        <view class="type_box">
+          <view class="type-item">
+            全部
+          </view>
+        </view>
+        <view class="type_box">
+          <view class="type-item">
+            全部
+          </view>
+        </view>
+      </scroll-view>
+   </view>
 </view>

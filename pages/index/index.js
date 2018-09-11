@@ -25,7 +25,7 @@ Page({
       success: function (res) {
         console.log(res);
         that.setData({
-          imgUrls:res.data.data
+          imgUrls:res.data.data,
         })
       }
     })
