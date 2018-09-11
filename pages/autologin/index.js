@@ -22,6 +22,7 @@ Page({
       title: '加载中',
     })
      let token=wx.getStorageSync('token');
+    console.log(token)
      let that=this;
      if(token){
       wx.request({
@@ -63,7 +64,8 @@ Page({
                   return ;
                 }
                 wx.setStorageSync('uid',res.data.data.uid);
-                wx.setStorageSync('token', res.data.data.token)
+                wx.setStorageSync('token', res.data.data.token);
+                wx.navigateBack();
              }
            }
          })
