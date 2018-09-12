@@ -81,3 +81,30 @@ overflow:hidden;
 .type-item{
   border-bottom: 4px solid #fff;
 }
+.border_red_bottom{
+  border-bottom: 4px solid #f00;
+}
+.noice{
+  height: 80rpx;
+  margin-top: 20rpx;
+  display: inline-block;
+  width: 100%;
+  align-items: center;
+  background-color: #fff;
+ 
+}
+.noice .notice_title{
+  width: 200rpx;
+  display: inline-block;
+  height: 80rpx;
+  overflow: hidden;
+  text-align: center;
+  line-height: 80rpx;
+}
+.noice swiper{
+  display: inline-block;
+  height: 80rpx;
+  width: 500rpx;
+  align-items: center;
+  line-height: 80rpx;
+}

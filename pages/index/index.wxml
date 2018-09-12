@@ -23,31 +23,26 @@
    <!-- 分类开始 -->
    <view class='type_contain'>
       <scroll-view scroll-x="true" class="type_content">
-        <view class="type_box">
-          <view class="type-item">
-            全部
-          </view>
-        </view>
-        <view class="type_box">
-          <view class="type-item">
-            全部
-          </view>
-        </view>
-        <view class="type_box">
-          <view class="type-item">
-            全部
-          </view>
-        </view>
-        <view class="type_box">
-          <view class="type-item">
-            全部
-          </view>
-        </view>
-        <view class="type_box">
-          <view class="type-item">
-            全部
+        <view class="type_box" wx:for="{{categrory}}" wx:key="{{index}}">
+          <view id='{{item.id}}' class="type-item {{navOn==item.id?'border_red_bottom':''}}" bindtap='changeCategrory'>
+            {{item.name}}
           </view>
         </view>
       </scroll-view>
+   </view>
+   <!-- 分类结束 -->
+   <!-- 公告开始 -->
+   <view class='noice'>
+    <view class="notice_title">
+        公告
+    </view>
+    <swiper autoplay="true" vertical="true" circular="true">
+      <swiper-item>
+          公告公告公告
+      </swiper-item>
+       <swiper-item>
+          公告公告公告
+      </swiper-item>
+    </swiper>
    </view>
 </view>
