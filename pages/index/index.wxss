@@ -108,3 +108,67 @@ overflow:hidden;
   align-items: center;
   line-height: 80rpx;
 }
+.charge_container{
+  width: 100%;
+  background-color: #fff;
+}
+.charge_nav{
+  overflow: hidden;
+  margin: auto;
+  white-space: nowrap;
+
+}
+.charge_item{
+  font-size: 20rpx;
+  display: inline-block;
+  width: 300rpx;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  line-height: 33rpx;
+  color: #fff;
+  background: #f1a83b;
+  padding-bottom: 20rpx;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  overflow: hidden;
+}
+.shop_container{
+  padding: 24rpx;
+  justify-content: space-between;
+  display:flex;
+  flex-wrap:wrap;
+  overflow: hidden;
+}
+.shop_item{
+  background: #fff;
+  width: 339rpx;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+}
+.shop_item image{
+  width: 339rpx;
+  height: 339rpx;
+}
+.shop_title{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.shop_title text{
+  color:#000;
+  margin-left: 24rpx;
+}
+.shop_price{
+  margin-bottom: 20rpx;
+}
+.shop_price .now_price{
+  margin-left: 24rpx;
+  color: #f00;
+}
+.shop_price .old_price{
+  margin-left: 110rpx;
+  text-decoration: line-through;
+  color: #aaa;
+}
+

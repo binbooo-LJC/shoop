@@ -33,16 +33,65 @@
    <!-- 分类结束 -->
    <!-- 公告开始 -->
    <view class='noice'>
-    <view class="notice_title">
-        公告
-    </view>
-    <swiper autoplay="true" vertical="true" circular="true">
-      <swiper-item>
-          公告公告公告
-      </swiper-item>
-       <swiper-item>
-          公告公告公告
-      </swiper-item>
-    </swiper>
+      <view class="notice_title">
+          公告
+      </view>
+      <swiper autoplay="true" vertical="true" circular="true">
+        <swiper-item>
+            公告公告公告
+          </swiper-item>
+          <swiper-item>
+              公告公告公告
+           </swiper-item>
+        </swiper>
    </view>
+   <!-- 公告结束 -->
+   <!-- 优惠券开始 -->
+    <view class="charge_container">
+        <scroll-view scroll-x="true" class="charge_nav">
+          <view class="charge_item">
+            <view class="charge_money">￥ 40元</view>
+            <view class="charge_title">新店优惠</view>
+            <view class="charge_limit">满 300元使用</view>
+             <view class="charge_day">领取 15天内有效</view>
+          </view>
+           <view class="charge_item">
+            <view class="charge_money">￥ 40元</view>
+            <view class="charge_title">新店优惠</view>
+            <view class="charge_limit">满 300元使用</view>
+             <view class="charge_day">领取 15天内有效</view>
+          </view>
+           <view class="charge_item">
+            <view class="charge_money">￥ 40元</view>
+            <view class="charge_title">新店优惠</view>
+            <view class="charge_limit">满 300元使用</view>
+             <view class="charge_day">领取 15天内有效</view>
+          </view>
+        </scroll-view>
+    </view>
+    <!-- 优惠券结束 -->
+    <!-- 商品列表开始 -->
+    <view class="shop_container">
+     
+      <view class="shop_item">
+        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
+        <view class='shop_title'><text>1-3岁袜子</text> </view>
+        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
+      </view>
+      <view class="shop_item">
+        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
+        <view class='shop_title'><text>1-3岁袜子</text> </view>
+        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
+      </view>
+      <view class="shop_item">
+        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
+        <view class='shop_title'><text>1-3岁袜子</text> </view>
+        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
+      </view>
+      <view class="shop_item">
+        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
+        <view class='shop_title'><text>1-3岁袜子</text> </view>
+        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
+      </view>
+    </view>
 </view>
