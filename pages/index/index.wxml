@@ -13,7 +13,7 @@
   <view class="banner">
     <swiper indicator-dots="{{indicatorDots}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-        <swiper-item>
+        <swiper-item >
           <image src="{{item.picUrl}}" class="slide-image" width="355" height="150"/>
         </swiper-item>
       </block>
@@ -32,66 +32,37 @@
    </view>
    <!-- 分类结束 -->
    <!-- 公告开始 -->
-   <view class='noice'>
+   <view class='noice' wx:if="{{notice}}">
       <view class="notice_title">
           公告
       </view>
-      <swiper autoplay="true" vertical="true" circular="true">
-        <swiper-item>
-            公告公告公告
+      <swiper autoplay="true" vertical="true" circular="true" >
+        <block wx:for="{{notice}}" wx:key='id' >
+          <swiper-item bindtap="goNoticeDeTail" id='{{item.id}}'>
+              {{item.title}}
           </swiper-item>
-          <swiper-item>
-              公告公告公告
-           </swiper-item>
+        </block>  
         </swiper>
    </view>
    <!-- 公告结束 -->
    <!-- 优惠券开始 -->
-    <view class="charge_container">
+    <view class="charge_container" wx:if="{{discounts}}">
         <scroll-view scroll-x="true" class="charge_nav">
-          <view class="charge_item">
-            <view class="charge_money">￥ 40元</view>
+          <view class="charge_item" wx:if="{{item.numberLeft}}" wx:for="{{discounts}}" wx:key='id' id="{{item.id}}" bindtap='getDiscount'>
+            <view class="charge_money">￥{{item.moneyMax==item.moneyMin?item.moneyMax:item.moneyMin-item.moneyMax}}元</view>
             <view class="charge_title">新店优惠</view>
-            <view class="charge_limit">满 300元使用</view>
-             <view class="charge_day">领取 15天内有效</view>
-          </view>
-           <view class="charge_item">
-            <view class="charge_money">￥ 40元</view>
-            <view class="charge_title">新店优惠</view>
-            <view class="charge_limit">满 300元使用</view>
-             <view class="charge_day">领取 15天内有效</view>
-          </view>
-           <view class="charge_item">
-            <view class="charge_money">￥ 40元</view>
-            <view class="charge_title">新店优惠</view>
-            <view class="charge_limit">满 300元使用</view>
-             <view class="charge_day">领取 15天内有效</view>
+            <view class="charge_limit">{{item.name}}</view>
+             <view class="charge_day">领取 {{item.dateEndDays}}天内有效</view>
           </view>
         </scroll-view>
     </view>
     <!-- 优惠券结束 -->
     <!-- 商品列表开始 -->
-    <view class="shop_container">
-     
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
-      </view>
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
-      </view>
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
-      </view>
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
+    <view class="shop_container" wx:if="{{goodsList}}" >
+      <view class="shop_item" wx:for="{{goodsList}}" id="{{item.id}}" bindtap='goShopDetail' wx:key="id">
+        <image src="{{item.pic}}"></image>
+        <view class='shop_title'><text>{{item.name}}</text> </view>
+        <view class='shop_price'><text class="now_price">￥ {{item.minPrice}}</text><text class="old_price">￥{{item.originalPrice}}</text></view>
       </view>
     </view>
 </view>
