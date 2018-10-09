@@ -47,51 +47,26 @@
    </view>
    <!-- 公告结束 -->
    <!-- 优惠券开始 -->
-    <view class="charge_container">
+    <view class="charge_container" wx:if="{{coupons}}">
         <scroll-view scroll-x="true" class="charge_nav">
-          <view class="charge_item">
-            <view class="charge_money">￥ 40元</view>
-            <view class="charge_title">新店优惠</view>
-            <view class="charge_limit">满 300元使用</view>
-             <view class="charge_day">领取 15天内有效</view>
+          <view class="charge_item" wx:for='{{coupons}}' wx:key='{{index}}' id='{{item.id}}' bindtap='tabCoupons'>
+            <view class="charge_money">￥ {{item.moneyMax}}元</view>
+            <view class="charge_title">{{item.name}}</view>
+            <view class="charge_limit">满 {{item.moneyHreshold}}元使用</view>
+             <view class="charge_day">领取 {{item.dateEndDays}}天内有效</view>
           </view>
-           <view class="charge_item">
-            <view class="charge_money">￥ 40元</view>
-            <view class="charge_title">新店优惠</view>
-            <view class="charge_limit">满 300元使用</view>
-             <view class="charge_day">领取 15天内有效</view>
-          </view>
-           <view class="charge_item">
-            <view class="charge_money">￥ 40元</view>
-            <view class="charge_title">新店优惠</view>
-            <view class="charge_limit">满 300元使用</view>
-             <view class="charge_day">领取 15天内有效</view>
-          </view>
+        
+          
         </scroll-view>
     </view>
     <!-- 优惠券结束 -->
     <!-- 商品列表开始 -->
     <view class="shop_container">
      
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
-      </view>
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
-      </view>
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
-      </view>
-      <view class="shop_item">
-        <image src='/images/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
-        <view class='shop_title'><text>1-3岁袜子</text> </view>
-        <view class='shop_price'><text class="now_price">￥ 59</text><text class="old_price">￥89</text></view>
+      <view class="shop_item" wx:for="{{shopList}}" wx:key="{{index}}" bindlongtap='jumpDetail' id='{{item.id}}'>
+        <image src='{{item.pic}}'></image>
+        <view class='shop_title'><text>{{item.name}}</text> </view>
+        <view class='shop_price'><text class="now_price">￥ {{item.minPrice}}</text><text class="old_price">￥{{item.originalPrice}}</text></view>
       </view>
     </view>
 </view>
