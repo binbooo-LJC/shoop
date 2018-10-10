@@ -4,8 +4,8 @@
 <view class="search_content">
     <view class='search'>
       <image class='search_img' src='/images/search-pic.png'></image>
-      <input class="search_input" placeholder='请输入搜素内容'></input>
-      <button class='search_button'>搜素</button>
+      <input class="search_input" placeholder='请输入搜素内容' bindinput='getkeword' bindconfirm='tosearch'></input>
+      <button class='search_button' >搜素</button>
     </view>
   </view>
   <!-- 搜素结束 -->

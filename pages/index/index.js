@@ -1,6 +1,7 @@
 // pages/index/index.js
 const app=getApp();
 const appdata = app.globalData;
+const url = appdata.app_address + appdata.subDomain;
 Page({
 
   /**
@@ -47,8 +48,57 @@ Page({
     })
     this.getshopList()
   },
+  // 点击优惠券
   tabCoupons:function(e){
     console.log(e.currentTarget.id)
+    let id = e.currentTarget.id;
+    wx.request({
+      url: url +'/discounts/fetch',
+      data:{
+        id:id,
+        token:wx.getStorageSync('token')
+      },
+      success:function(res){
+        console.log(res);
+        if(res.data.code==0){
+          wx.showModal({
+            title: '领取成功，赶紧下单吧',
+            showCancel:false,
+          })
+        } else if(res.data.code == 20001 || res.data.code == 20002){
+          wx.showToast({
+            title: '您来晚咯',
+            duration: 1500,
+            mask: true,
+            icon:'false'
+          })
+        }else if(res.data.code==20003){
+          wx.showToast({
+            title: '别贪心，您已经领取过了',
+            duration: 1500,
+            mask: true,
+            icon: 'false'
+          })
+        } else if (res.data.code == 30001) {
+          wx.showToast({
+            title: '积分不足',
+            duration: 1500,
+            mask: true,
+            icon: 'false'
+          })
+        }else{
+          wx.showModal({
+            title: '错误',
+            content: res.data.msg,
+            showCancel:false
+          })
+        }
+      }
+    })
+  },
+  // 获取关键词
+  getkeword:function(e){
+    console.log(e.detail.value)
   },
   /**
    * 生命周期函数--监听页面加载
