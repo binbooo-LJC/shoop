@@ -18,6 +18,7 @@ Page({
     shopList:null,
     coupons:null,
     hideCoupons:true,
+    keyword:'',
   },
   // 获取商品
   getshopList: function () {
@@ -25,7 +26,8 @@ Page({
     wx.request({
       url: appdata.app_address + appdata.subDomain + '/shop/goods/list',
       data:{
-        categoryId:this_.data.navOn
+        categoryId:this_.data.navOn,
+        nameLike: this_.data.keyword
       },
       success(res){
         if(res.data.code==0){
@@ -98,7 +100,20 @@ Page({
   },
   // 获取关键词
   getkeword:function(e){
-    console.log(e.detail.value)
+    this.setData({
+      keyword: e.detail.value
+    })
+  },
+  // 根据关键字搜索
+  tosearch:function(){
+    this.getshopList()
+  },
+  jumpDetail:function(e){
+    console.log(e.currentTarget.id);
+    wx.setStorageSync('goods_id', e.currentTarget.id);
+    wx.navigateTo({
+      url: '/pages/goods_detail/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -190,6 +205,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+      return {
+        title: app.globalData.shareshortTitle,
 
+      }
   }
 })

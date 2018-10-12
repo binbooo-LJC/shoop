@@ -5,7 +5,7 @@
     <view class='search'>
       <image class='search_img' src='/images/search-pic.png'></image>
       <input class="search_input" placeholder='请输入搜素内容' bindinput='getkeword' bindconfirm='tosearch'></input>
-      <button class='search_button' >搜素</button>
+      <button class='search_button' bindtap='tosearch'>搜素</button>
     </view>
   </view>
   <!-- 搜素结束 -->
@@ -63,7 +63,7 @@
     <!-- 商品列表开始 -->
     <view class="shop_container">
      
-      <view class="shop_item" wx:for="{{shopList}}" wx:key="{{index}}" bindlongtap='jumpDetail' id='{{item.id}}'>
+      <view class="shop_item" wx:for="{{shopList}}" wx:key="{{index}}" bindtap='jumpDetail' id='{{item.id}}'>
         <image src='{{item.pic}}'></image>
         <view class='shop_title'><text>{{item.name}}</text> </view>
         <view class='shop_price'><text class="now_price">￥ {{item.minPrice}}</text><text class="old_price">￥{{item.originalPrice}}</text></view>

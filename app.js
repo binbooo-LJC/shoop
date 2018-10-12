@@ -6,6 +6,7 @@ App({
   },
   globalData: {
     app_address:'https://api.it120.cc/',
-    subDomain:'5394cdb5d2a361dbaa95247f9c1cfc31'
+    subDomain:'5394cdb5d2a361dbaa95247f9c1cfc31',
+    shareshortTitle:'LEARN THE MINI APP BY MYSELF'
   }
 })

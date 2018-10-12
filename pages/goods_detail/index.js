@@ -1,18 +1,30 @@
 // pages/goods_detail/index.js
+const app=getApp();
+const appdata = app.globalData;
+const url = appdata.app_address + appdata.subDomain;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    detail:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+   let goods_id=wx.getStorageSync('goods_id');
+    wx.request({
+      url: url + '/shop/goods/detail',
+      data:{
+        id:goods_id
+      },
+      success:function(res){
+        console.log(res);
+      }
+    })
   },
 
   /**
