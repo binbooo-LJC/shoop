@@ -8,13 +8,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail:null,
+    detail:{},
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration:1000,
+    indicatorcolor:"#fff",
+    indicatoractivecolor:"#f00",
+    imgUrls: [
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   var that=this;
    let goods_id=wx.getStorageSync('goods_id');
     wx.request({
       url: url + '/shop/goods/detail',
@@ -23,6 +35,10 @@ Page({
       },
       success:function(res){
         console.log(res);
+       that.setData({
+         'detail':res
+       })
+       console.log(that.data.detail)
       }
     })
   },

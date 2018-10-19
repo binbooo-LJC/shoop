@@ -1,1 +1,37 @@
 /* pages/goods_detail/index.wxss */
+.contain{
+  background: #F2f2f2;
+  padding-bottom: 100rpx;
+}
+.banner{
+  width:100%;
+  
+ }
+.banner swiper{
+  height: 749rpx;
+}
+swiper image{
+  height:749rpx;
+  width: 100%;
+}
+swiper{margin: auto;display: flex;justify-content: space-between;flex-direction: column}
+.detail_container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  height: 169rpx;
+}
+.detail_container .detail{
+  width: 80%;
+  height: 169rpx;
+}
+.detail_container .share{
+  width: 20%;
+  height:169rpx;
+}
+.detail view{display: inline-block}
+.detail_name{
+  width: 100%;
+}
