@@ -1,6 +1,6 @@
 /* pages/goods_detail/index.wxss */
-.contain{
-  background: #F2f2f2;
+.container{
+  background: #f2f2f2;
   padding-bottom: 100rpx;
 }
 .banner{
@@ -22,16 +22,89 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
   flex-wrap:wrap;
   justify-content: space-between;
   height: 169rpx;
+  margin-top: 20rpx;  
+  background-color: #fff;
+  margin-bottom: 20rpx;
 }
 .detail_container .detail{
-  width: 80%;
+  width:70%;
   height: 169rpx;
+  padding-left: 30rpx;
 }
 .detail_container .share{
-  width: 20%;
+  width:30%;
   height:169rpx;
+  
 }
 .detail view{display: inline-block}
 .detail_name{
   width: 100%;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  margin-top: 20rpx;
 }
+.share image{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right:40rpx;
+}
+.detail_price{
+  font-size: 28rpx;
+  color: #f00;
+  
+}
+.sale_num{
+  font-size: 28rpx;
+  margin-left: 80rpx;
+}
+.sign_num{
+  font-size: 28rpx;
+  margin-left: 87rpx;
+}
+.share_button{
+  width: 140rpx;
+  height:90rpx;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  border: 0;
+  opacity: 0;
+  color: #000;
+}
+.share_title{
+  font-size: 28rpx;
+  margin-left: 60rpx;
+}
+
+.item{
+  display: flex;
+  width: 100%;
+  height: 102rpx;
+  line-height: 102rpx;
+  padding:0 120rpx 0 35rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  background: #fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 687rpx center;
+  background-size: 18rpx;
+  margin-bottom: 20rpx;
+}
+.goods_pic{
+  width: 100%;
+  background-color: #fff;
+  
+ 
+}
+
+.pic_item{
+
+ 
+}
+.goos_desc_title{
+  font-size: 28rpx; 
+  padding: 30rpx 120rpx 30rpx 35rpx;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+}
+
