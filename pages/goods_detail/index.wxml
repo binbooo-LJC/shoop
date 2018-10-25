@@ -35,10 +35,8 @@
   <!-- 商品图片 -->
     <view class="goods_pic">
       <view class="goos_desc_title">商品介绍</view>
-      <view class="goods_desc">中小毛衣，适合2-5岁儿童</view>
-      <view class="pic_item">
-        <image          src='https://cdn.it120.cc/apifactory/2018/09/12/360097e8a78b49c9c9daa394d718ba72.jpg'>             
-        </image>
+      <view class="goods_desc">
+        
       </view>
     </view>
 </view>

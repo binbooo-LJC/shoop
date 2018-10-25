@@ -34,7 +34,7 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
 .detail_container .share{
   width:30%;
   height:169rpx;
-  
+  position: relative;
 }
 .detail view{display: inline-block}
 .detail_name{
@@ -47,12 +47,12 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
   width: 80rpx;
   height: 80rpx;
   position: absolute;
-  right:40rpx;
+  right:64rpx;
+  top: 13rpx;
 }
 .detail_price{
   font-size: 28rpx;
   color: #f00;
-  
 }
 .sale_num{
   font-size: 28rpx;
@@ -63,7 +63,6 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
   margin-left: 87rpx;
 }
 .share_button{
-  width: 140rpx;
   height:90rpx;
   padding: 0;
   margin: 0;
@@ -92,12 +91,8 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
 .goods_pic{
   width: 100%;
   background-color: #fff;
-  
- 
 }
-
 .pic_item{
-
  
 }
 .goos_desc_title{
@@ -106,5 +101,11 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
   box-sizing: border-box;
   display: flex;
   width: 100%;
+  color: #000;
 }
-
+.goods_desc{
+  color: #666;
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  line-height: 56rpx;
+}
