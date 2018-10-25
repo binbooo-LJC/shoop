@@ -1,4 +1,5 @@
 <!--pages/goods_detail/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class="container">
   <!-- 轮播图开始 -->
     <view class="banner">
@@ -36,7 +37,68 @@
     <view class="goods_pic">
       <view class="goos_desc_title">商品介绍</view>
       <view class="goods_desc">
-        
+         <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
       </view>
     </view>
+  <!--  底部购物车开始 -->
+    <view class="footer">
+      <view class="footer_kefu">
+        <button class="kehu_button"></button>
+        <view class="kehu_text">客服</view>
+      </view>
+      <view class="footer_cart">
+        <view class="carNum">(1)</view>
+        <view class="cart_text">购物车</view>
+      </view>
+      <view class="add_cart">加入购物车</view>
+      <view class="buyNow">立即购买</view>
+    </view>
+  <!-- 底部结束 -->
+  <!--  尺码规格颜色开始 -->
+    <view class="show_popup">
+      <view class="popup_mask"></view>
+      <view class="popup_content">
+        <view class="pop_goods_desc">
+          <view class="popup_img" >
+            <image src='https://cdn.it120.cc/apifactory/2017/09/23/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
+          </view>
+          <view class="popup_goods">
+            <view class="goods_title">毛衣</view>
+            <view class="goods_price">￥ 49</view>
+          </view>
+          <view class="popup_close"></view>
+        </view>
+        <view class="popup_arrow">
+          <view class="arrow_coulm">
+            <view class="arrow_title">尺码</view>
+              <view  class="arrow_content">
+                <view class="arrow_item">90</view>
+                <view class="arrow_item">100</view>
+                <view class="arrow_item">110</view>
+            </view>
+            <view class="arrow_title">尺码</view>
+              <view  class="arrow_content">
+                <view class="arrow_item">90</view>
+                <view class="arrow_item">100</view>
+                <view class="arrow_item">110</view>
+            </view>
+          </view>
+        </view>
+        <view class="buy_num">
+          <view class="buy_num_title">购买数量</view>
+          <view class="buy_num_add">
+            <view class="button_jian">-</view>
+            <view class="button_input">
+              <input type='number' disabled='disabled' value='1'></input>
+            </view>
+           <view class="button_jian">+</view>
+          </view>
+        </view>
+      </view>
+      
+      <view class="item_content">加入购物车</view>
+    </view>
+  <!-- 尺码规格颜色结束 -->
+
 </view>
+

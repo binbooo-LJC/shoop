@@ -2,6 +2,7 @@
 const app=getApp();
 const appdata = app.globalData;
 const url = appdata.app_address + appdata.subDomain;
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -32,8 +33,8 @@ Page({
         console.log(res);
        that.setData({
          'detail':res
-       })
-       console.log(that.data.detail)
+       });
+        WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
       }
     })
   },

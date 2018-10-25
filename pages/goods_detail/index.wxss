@@ -2,6 +2,7 @@
 .container{
   background: #f2f2f2;
   padding-bottom: 100rpx;
+  min-height:100%;
 }
 .banner{
   width:100%;
@@ -92,9 +93,6 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
   width: 100%;
   background-color: #fff;
 }
-.pic_item{
- 
-}
 .goos_desc_title{
   font-size: 28rpx; 
   padding: 30rpx 120rpx 30rpx 35rpx;
@@ -108,4 +106,155 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
   padding: 0 10rpx;
   font-size: 28rpx;
   line-height: 56rpx;
+}
+.footer{
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.footer view{
+  display: inline-block;
+}
+.footer_kefu{
+  width: 120rpx;
+  position: relative;
+  height: 100%;
+  background:url("https://cdn.it120.cc/images/weappshop/kefu.png") no-repeat center 11rpx;
+  background-size:55rpx auto;
+  
+}
+.kehu_button{
+  height: 50%;
+  opacity: 0;
+}
+.kehu_text{
+  font-size: 20rpx;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+  color: #008000;
+}
+.footer_cart{
+  display: flex;
+  font-size: 20rpx;
+  width: 135rpx;
+  height: 100%;
+  background:url("https://cdn.it120.cc/images/weappshop/cart.png") no-repeat center 21rpx;
+  background-size:44rpx auto;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.cart_text{
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  left: 0;
+  color: #acacb7;
+}
+.carNum{
+  position: absolute;
+  right: 20rpx;
+  color: #e64340;
+  top: 10rpx;
+}
+.add_cart,.buyNow{
+  width: 250rpx;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 34rpx;
+  color: #fff;
+}
+.add_cart{
+  background-color: #ff6850;
+}
+.buyNow{
+  background-color: #e64340;
+}
+.show_popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:4;
+}
+.popup_mask{
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.popup_content{
+  position: absolute;
+  bottom: 100rpx;
+  width: 100%;
+  z-index: 6;
+  background-color:#fff; 
+ 
+}
+.popup_content .popup_img image{
+  width: 120rpx;
+  height: 120rpx;
+}
+.pop_goods_desc{
+  display: flex;
+  padding: 30rpx 0;
+  margin-left:30rpx; 
+  border-bottom: 1px solid #eee;
+  flex-direction: row;
+}
+.pop_goods_desc .popup_goods{
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.pop_goods_desc .goods_price{
+  margin-top: 18rpx;
+  color: #f00;
+}
+.pop_goods_desc .goods_title{
+  margin-top: 10rpx;
+}
+.popup_close{
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  right: 30rpx;
+  background:url("https://cdn.it120.cc/images/weappshop/popup-close.png") no-repeat center center;
+  background-size:36rpx auto;
+}
+.popup_arrow{
+  margin-left: 30rpx;
+  border-bottom: 1px solid #eee;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+}
+.popup_arrow .arrow_title {
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}
+.popup_arrow .arrow_content{
+  display: flex;
+  flex-direction: row;
+}
+.arrow_content .arrow_item{
+  padding:14rpx 20rpx;
+  border: 1px solid #ddd;
+  margin-right: 20rpx;
+  color: #000;
+  font-size: 26rpx;
+}
+.buy_num{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
 }
