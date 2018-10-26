@@ -15,14 +15,14 @@
   <!-- 商品详情开始 -->
   <view class="detail_container">
     <view class="detail">
-      <view class='detail_name'>毛衣</view>
-      <view class='detail_price'>￥ 88</view>
-      <view class='sale_num'>购买3次</view>
-      <view class='sign_num'>共收到0次好评</view>
+      <view class='detail_name'>{{detail.data.data.basicInfo.name}}</view>
+      <view class='detail_price'>￥{{detail.data.data.basicInfo.minPrice}}</view>
+      <view class='sale_num'>购买{{detail.data.data.basicInfo.numberOrders}}次</view>
+      <view class='sign_num'>共收到{{detail.data.data.basicInfo.numberGoodReputation}}次好评</view>
     </view>
     <view class="share">
       <image src='../../images/qd.png'></image>
-      <button class="share_button">分享有奖</button>
+      <button class="share_button" open-type='share'>分享有奖</button>
       <text class="share_title">分享有奖</text>
     </view>
   </view>
@@ -54,7 +54,7 @@
   </view>
   <!-- 底部结束 -->
   <!--  尺码规格颜色开始 -->
-  <view class="show_popup" >
+  <view class="show_popup" hidden='true'>
     <view class="popup_mask"></view>
     <view class="popup_content">
       <view class="pop_goods_desc">
@@ -94,7 +94,7 @@
         </view>
       </view>
     </view>
-    <view class="join_to_cart">加入购物车</view> 
+    <view class="join_to_cart">加入购物车</view>
     <!-- <view class="go-to-buy">立即购买</view> -->
   </view>
   <!-- 尺码规格颜色结束 -->

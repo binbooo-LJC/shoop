@@ -22,6 +22,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showShareMenu({
+      withShareTicket: true //要求小程序返回分享目标信息
+    });
    var that=this;
    let goods_id=wx.getStorageSync('goods_id');
     wx.request({
@@ -50,7 +53,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.showShareMenu({
+      withShareTicket: true //要求小程序返回分享目标信息
+    });
   },
 
   /**
@@ -85,6 +90,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: appdata.shareshortTitle,
+      path: '/pages/goods_detail/index',
+      succss(res) {
+        console.log(res.shareTickets[0])
+      },
+    }
+   
   }
 })

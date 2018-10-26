@@ -1,8 +1,11 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function (ops) {
+    console.log(ops.scene)
     // 展示本地存储能力
-    
+    if (ops.scene == 1044) {
+      console.log(ops.shareTicket)
+    }
   },
   globalData: {
     app_address:'https://api.it120.cc/',

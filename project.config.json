@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -52,6 +52,25 @@
 					"name": "detail",
 					"pathName": "pages/goods_detail/index",
 					"query": "goods_id=88776"
+				},
+				{
+					"id": 3,
+					"name": "wqqe",
+					"pathName": "pages/goods_detail/index",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群4",
+						"shareName": "vUiNU9g8G7N0ihgVZOoCFb4DC7vmevQMZmsSpEWcsQw@cr4dev",
+						"shareKey": "PTgQTnbOtP3SMx_KlEnUTHhZgGEzeCgje5LitRb5U_qDQ-FU63QXB68hVwwXQzh_rbyuHAYnPNLwQVuhaNYUgg~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "wqqe",
+					"pathName": "pages/goods_detail/index",
+					"query": "",
+					"scene": "1008"
 				}
 			]
 		}
