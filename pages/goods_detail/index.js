@@ -16,6 +16,14 @@ Page({
     duration:1000,
     indicatorcolor:"#fff",
     indicatoractivecolor:"#f00",
+    //  尺码规格是否显示
+    isShowArrow:true,
+    // 是否存在尺码规格
+    isShowSelect:true,
+    selectSize:'',
+    // 购物车数量
+    cartNum:0,
+    cartInfo:{},
   },
 
   /**
@@ -27,6 +35,7 @@ Page({
     });
    var that=this;
    let goods_id=wx.getStorageSync('goods_id');
+   let select_data='选择：';
     wx.request({
       url: url + '/shop/goods/detail',
       data:{
@@ -34,8 +43,23 @@ Page({
       },
       success:function(res){
         console.log(res);
+        if (res.data.data.properties.length > 0) {
+          for (var i = 0; i < res.data.data.properties.length; i++) {
+            console.log(res.data.data.properties[i].name);
+            select_data += res.data.data.properties[i].name+' '
+          }
+        }
+        wx.getStorage({
+          key: 'cartNum',
+          success: function(res) {
+            that.setData({
+              cartNum: res.data
+            })
+          }
+        })
        that.setData({
-         'detail':res
+         'detail':res,
+         'selectSize': select_data
        });
         WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
       }
