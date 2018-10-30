@@ -23,9 +23,47 @@ Page({
     selectSize:'',
     // 购物车数量
     cartNum:0,
+    selectprice:'',
     cartInfo:{},
   },
-
+  changeSelectShow:function(e){
+   this.setData({
+     isShowSelect:false
+   })
+  },
+  closeSelect:function(e){
+    this.setData({
+      isShowSelect: true
+    })
+  },
+  sizeTap:function(e){
+    var that=this;
+    var child = that.data.detail.data.data.properties[e.currentTarget.dataset.propertyidx]['childsCurGoods'];
+    for (var i = 0;i<child.length;i++){
+      that.data.detail.data.data.properties[e.currentTarget.dataset.propertyidx]['childsCurGoods'][i].active=false;
+    }
+    that.data.detail.data.data.properties[e.currentTarget.dataset.propertyidx]['childsCurGoods'][e.currentTarget.dataset.properychildindex].active = true;
+    var propertyLength = that.data.detail.data.data.properties;
+    var hadSelectNum=0;
+    var canSubmit=false;
+    var selecttype='';
+    for (var i = 0; i < propertyLength.length;i++){
+      var childsCurGoods = propertyLength[i]['childsCurGoods'];
+      for (var j = 0; j < childsCurGoods.length ; j++){
+        if (childsCurGoods[j].active==true){
+          hadSelectNum++;
+          selecttype += childsCurGoods[i].propertyId + ':' + childsCurGoods[i].id+','
+        }
+      }
+    }
+    if (hadSelectNum == propertyLength.length){
+      canSubmit=true;
+    }
+    console.log(selecttype)
+    this.setData({
+     detail: that.data.detail,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,6 +82,9 @@ Page({
       success:function(res){
         console.log(res);
         if (res.data.data.properties.length > 0) {
+          that.setData({
+            isShowArrow:false
+          })
           for (var i = 0; i < res.data.data.properties.length; i++) {
             console.log(res.data.data.properties[i].name);
             select_data += res.data.data.properties[i].name+' '
@@ -53,13 +94,15 @@ Page({
           key: 'cartNum',
           success: function(res) {
             that.setData({
-              cartNum: res.data
+              cartNum: res.data.shopNum,
+              cartInfo:res.data
             })
           }
         })
        that.setData({
          'detail':res,
-         'selectSize': select_data
+         'selectSize': select_data,
+         'selectprice': res.data.data.basicInfo.minPrice
        });
         WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
       }

@@ -28,8 +28,8 @@
   </view>
   <!-- 商品详情结束 -->
   <!-- 尺码，款式 -->
-  <view class="item">
-    选择：尺码 颜色
+  <view class="item" hidden='{{isShowArrow}}' bindtap='changeSelectShow'>
+    {{selectSize}}
   </view>
   <!-- 尺码款式结束 -->
   <!-- 商品图片 -->
@@ -54,7 +54,7 @@
   </view>
   <!-- 底部结束 -->
   <!--  尺码规格颜色开始 -->
-  <view class="show_popup" hidden='true'>
+  <view class="show_popup" hidden='{{isShowSelect}}'>
     <view class="popup_mask"></view>
     <view class="popup_content">
       <view class="pop_goods_desc">
@@ -65,21 +65,13 @@
           <view class="goods_title">毛衣</view>
           <view class="goods_price">￥ 49</view>
         </view>
-        <view class="popup_close"></view>
+        <view class="popup_close" bindtap='closeSelect'></view>
       </view>
       <view class="popup_arrow">
-        <view class="arrow_coulm">
-          <view class="arrow_title">尺码</view>
-          <view class="arrow_content">
-            <view class="arrow_item">90</view>
-            <view class="arrow_item">100</view>
-            <view class="arrow_item">110</view>
-          </view>
-          <view class="arrow_title">尺码</view>
-          <view class="arrow_content">
-            <view class="arrow_item">90</view>
-            <view class="arrow_item">100</view>
-            <view class="arrow_item">110</view>
+        <view class="arrow_coulm" wx:for="{{detail.data.data.properties}}" wx:key="id" wx:for-item="property" wx:for-index="idx">
+          <view class="arrow_title" data-propertyid="{{property.id}}">{{property.name}}</view>
+          <view class="arrow_content" >
+            <view class="arrow_item  {{item.active ? 'active' : ''}}"  bindtap='sizeTap'  wx:for="{{property.childsCurGoods}}" data-properychildindex='{{index}}' wx:key="id" data-propertyidx="{{idx}}"  data-properyuchildid="{{item.id}}" data-propertyid="{{property.id}}" data-properyname='{{property.name}}'>{{item.name}}</view>
           </view>
         </view>
       </view>

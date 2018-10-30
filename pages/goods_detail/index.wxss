@@ -252,6 +252,7 @@ swiper{margin: auto;display: flex;justify-content: space-between;flex-direction:
   margin-right: 20rpx;
   color: #000;
   font-size: 26rpx;
+  border-radius: 6rpx
 }
 .buy_num{
   display: flex;
@@ -299,4 +300,8 @@ button_jia{
   text-align: center;
   line-height: 100rpx;
   color: #fff;
+}
+.arrow_content .active{
+   color: #e64340;
+  border: 1px solid #e64340;
 }
