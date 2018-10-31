@@ -46,11 +46,11 @@
       <view class="kehu_text">客服</view>
     </view>
     <view class="footer_cart">
-      <view class="carNum">(1)</view>
+      <view class="carNum">({{cartNum}})</view>
       <view class="cart_text">购物车</view>
     </view>
-    <view class="add_cart">加入购物车</view>
-    <view class="buyNow">立即购买</view>
+    <view class="add_cart" bindtap='add_cart'>加入购物车</view>
+    <view class="buyNow" bindtap='buyNow'>立即购买</view>
   </view>
   <!-- 底部结束 -->
   <!--  尺码规格颜色开始 -->
@@ -63,7 +63,7 @@
         </view>
         <view class="popup_goods">
           <view class="goods_title">毛衣</view>
-          <view class="goods_price">￥ 49</view>
+          <view class="goods_price">￥ {{selectprice}}</view>
         </view>
         <view class="popup_close" bindtap='closeSelect'></view>
       </view>
@@ -78,15 +78,16 @@
       <view class="buy_num">
         <view class="buy_num_title">购买数量</view>
         <view class="buy_num_add">
-          <view class="button_jian">-</view>
+          <view class="button_jian" bindtap='jianBuyNum'>-</view>
           <view class="button_input">
-            <input type='number' disabled='disabled' value='1'></input>
+            <input type='number' disabled='disabled' value='{{buyNum}}'></input>
           </view>
-          <view class="button_jia">+</view>
+          <view class="button_jia" bindtap='addBuyNum'>+</view>
         </view>
       </view>
     </view>
-    <view class="join_to_cart">加入购物车</view>
+    <view class="join_to_cart" bindtap='join_to_cart' hidden='{{isaddcar?false:true}}'>加入购物车</view>
+    <view class="join_to_cart" bindtap='join_to_buy' hidden='{{isaddcar?true:false}}'>立即购买</view>
     <!-- <view class="go-to-buy">立即购买</view> -->
   </view>
   <!-- 尺码规格颜色结束 -->
