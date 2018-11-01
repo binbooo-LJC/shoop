@@ -42,8 +42,8 @@
   <!--  底部购物车开始 -->
   <view class="footer">
     <view class="footer_kefu">
-      <button class="kehu_button"></button>
-      <view class="kehu_text">客服</view>
+      <button class="kehu_button" open-type="contact"></button>
+      <view class="kehu_text" >客服</view>
     </view>
     <view class="footer_cart">
       <view class="carNum">({{cartNum}})</view>

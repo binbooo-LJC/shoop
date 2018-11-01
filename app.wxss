@@ -6,4 +6,5 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  background-color: #F2f2f2
 } 

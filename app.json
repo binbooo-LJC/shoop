@@ -6,8 +6,9 @@
     "pages/autologin/index",
     "pages/cart/index",
     "pages/goods_detail/index",
-    "pages/personal/index"
-    
+    "pages/personal/index",
+    "pages/order/index",
+    "pages/address/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

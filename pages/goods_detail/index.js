@@ -113,21 +113,8 @@ Page({
   //加入购物车
   join_to_cart:function(e){
     var that=this;
-    console.log(that.data.canSubmit);
-      if(!that.data.canSubmit){
-       wx.showModal({
-         title: '提示',
-         content: '请选择规格',
-         showCancel:false
-       })
-       return;
-      }
-    if (that.data.selectstore < that.data.buyNum){
-      wx.showModal({
-        title: '提示',
-        content: '此规格库存为' + that.data.selectstore,
-        showCancel:false
-      })
+    console.log(that.checkArrowStore())
+    if(!that.checkArrowStore()){
       return;
     }
     // 构造购物车信息
@@ -136,14 +123,13 @@ Page({
       key: 'cartNum',
       success: function(res) {},
     })
-   
     wx.setStorage({
       key: 'cartNum',
       data: addcarinfo,
       success:function(e){
        wx.showToast({
          title: '加入购物车成功',
-         duration:15000000,
+         duration:1500,
          complete: function(res) {
            that.setData({
              isShowSelect:true,
@@ -156,7 +142,6 @@ Page({
 
   },
   buildcarinfo:function(){
-    
     var addcarinfo={};
     var goodsinfo=this.data.detail.data.data;
     var cartInfo = this.data.cartInfo;
@@ -194,11 +179,6 @@ Page({
     return cartInfo;
     
   },
-  add_cart:function(e){
-    this.setData({
-      isaddcar:1
-    })
-  },
   add_cart: function (e) {
     this.setData({
       isaddcar: 1,
@@ -210,6 +190,59 @@ Page({
       isaddcar:0,
       isShowSelect: false
     })
+  },
+  join_to_buy:function(e){
+    var that=this
+    if(!this.checkArrowStore()){
+      return;
+    };
+    var buymes=this.buildbuyInfo()
+    wx.setStorage({
+      key: 'buyinfo',
+      data: 'buymes',
+      success:function(res){
+        that.closeSelect();
+      }
+    })
+    wx.navigateTo({
+      url: '/pages/order/index',
+    })
+  },
+  buildbuyInfo:function(e){
+    var addcarinfo = {};
+    var goodsinfo = this.data.detail.data.data;
+    var cartInfo = this.data.cartInfo;
+    addcarinfo.name = goodsinfo.basicInfo.name;
+    addcarinfo.arrow = this.data.selectName;
+    addcarinfo.price = this.data.selectprice;
+    addcarinfo.buyNum = this.data.buyNum;
+    addcarinfo.goodsId = goodsinfo.basicInfo.id;
+    var buyInfo={}
+    if (!buyInfo.list){
+      buyInfo.list=[];
+    }
+    buyInfo.list.push(addcarinfo);
+    return buyInfo;
+  },
+  checkArrowStore:function(){
+    var that = this;
+    if (!that.data.canSubmit) {
+      wx.showModal({
+        title: '提示',
+        content: '请选择规格',
+        showCancel: false
+      })
+      return false;
+    }
+    if (that.data.selectstore < that.data.buyNum) {
+      wx.showModal({
+        title: '提示',
+        content: '此规格库存为' + that.data.selectstore,
+        showCancel: false
+      })
+      return false;
+    }
+    return true;
   },
   /**
    * 生命周期函数--监听页面加载
