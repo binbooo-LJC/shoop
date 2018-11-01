@@ -1,0 +1,116 @@
+/* pages/order/index.wxss */
+.add_address,.noAdd{
+  display: flex;
+  width: 100%;
+}
+.add_address{
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #000;
+  padding: 40rpx 0 40rpx 90rpx;
+  background: url(https://cdn.it120.cc/images/weappshop/ico-add-addr.png) no-repeat left center;
+  background-size: 60rpx auto;
+}
+.noAdd{
+   background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 705rpx center, url(https://cdn.it120.cc/images/weappshop/addr-line.png) no-repeat center bottom;
+   background-size: 16rpx auto,750rpx auto;
+   background-color: #fff;
+   margin: 20rpx 0 20rpx 0;
+   }
+   .order{
+     width: 100%;
+     background-color: #fff;
+     margin-bottom: 20rpx;
+   }
+   
+   .order .orderTitle{
+     width: 100%;
+     margin-left: 30rpx;
+     font-size: 28rpx;
+     padding:30rpx 0 25rpx 30rpx;
+   }
+   .order .order_item{
+     margin-left: 30rpx;
+     padding: 20rpx 0 20rpx 0;
+      border-top: 1px solid #eee;
+   }
+   .order .item_content{
+     display: flex;
+     width: 100%;
+     font-size: 28rpx;
+   }
+   .itemImg image{
+     width: 160rpx;
+     height: 160rpx;
+   }
+   .itemDesc{
+     width: 400rpx;
+     margin-left: 20rpx;
+   }
+   .itemprice{
+     margin-left: 55rpx;
+   }
+   .price,.itemName{
+     margin-top:16rpx;
+     margin-bottom: 60rpx;
+   }
+   .num,.itemArrow{
+     color: #999
+   }
+   .peisong{
+     width: 100%;
+     background-color: #fff;
+     border: 1px solid #eee;
+   }
+   .peisongItem{
+     margin-left: 30rpx;
+     padding:24rpx 0 24rpx 30rpx;
+     display: flex;
+     width: 100%;
+     font-size: 28rpx;
+   }
+   .peisongItem .peisongTitle{
+     width: 600rpx;
+   }
+   .peisongItem .peisonginfo{
+     color: #999;
+   }
+   .peisongItem .marktitle{
+      width: 200rpx;
+   }
+  .markItem{
+    border:0;
+    margin-bottom: 20rpx; 
+  }
+  .order_submit{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    font-size: 28rpx;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  .order_submit .submit{
+    height: 100%;
+    width: 260rpx;
+    background-color: #e64340;
+    line-height: 100rpx;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    font-size: 32rpx;
+  }
+  .order_submit .totle{
+    color: #e64340;
+    margin-right: 20rpx;
+  }
+
+
+
