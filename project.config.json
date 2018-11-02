@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -58,6 +58,11 @@
 					"name": "支付订单",
 					"pathName": "pages/order/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加收获地址",
+					"pathName": "pages/address_add/index"
 				}
 			]
 		}

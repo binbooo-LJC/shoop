@@ -1,7 +1,7 @@
 <!--pages/order/index.wxml-->
 <view class='container'>
   <!-- 没有收获地址开始 -->
-    <view class="noAdd">
+    <view class="noAdd" bindtap='add_address'>
       <view class="add_address">新增加收获地址</view>
     </view>
   <!-- 没有收获地址结束 -->
@@ -12,18 +12,18 @@
           商品详情
         </view>
       </view>
-      <view class="order_item">
+      <view class="order_item" wx:for='{{buyInfo}}' wx:key='id' data-goodsId='{{item.goodsId}}'>
         <view class="item_content">
           <view class="itemImg">
-            <image src='https://cdn.it120.cc/apifactory/2017/09/23/2b17c4d23cb83824eb4362052831ab8e.jpg'></image>
+            <image src='{{item.pic}}'></image>
           </view>
           <view class="itemDesc">
-            <view class="itemName"> 毛衣</view>
-            <view class="itemArrow">尺码:100 颜色:蓝色</view>
+            <view class="itemName"> {{item.name}}</view>
+            <view class="itemArrow">{{item.arrow}}</view>
           </view>
           <view class="itemprice">
-            <view class="price">￥49</view>
-            <view class="num">×10</view>
+            <view class="price">￥{{item.price}}</view>
+            <view class="num">×{{item.buyNum}}</view>
           </view>
         </view>
       </view>

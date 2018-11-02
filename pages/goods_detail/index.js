@@ -68,6 +68,7 @@ Page({
       that.setData({
         selectName: selectName,
         canSubmit: true,
+        selecttype:selecttype
       })
       wx.request({
         url: url + '/shop/goods/price',
@@ -141,6 +142,7 @@ Page({
     })
 
   },
+  // 组键购物车信息
   buildcarinfo:function(){
     var addcarinfo={};
     var goodsinfo=this.data.detail.data.data;
@@ -150,6 +152,8 @@ Page({
     addcarinfo.price = this.data.selectprice;
     addcarinfo.buyNum = this.data.buyNum;
     addcarinfo.goodsId = goodsinfo.basicInfo.id;
+    addcarinfo.pic = goodsinfo.basicInfo.pic;
+    addcarinfo.selecttype = this.data.selecttype;
     var hasSameid=0;
     if (!cartInfo.shopNum){
       cartInfo.shopNum=0;
@@ -199,7 +203,7 @@ Page({
     var buymes=this.buildbuyInfo()
     wx.setStorage({
       key: 'buyinfo',
-      data: 'buymes',
+      data: buymes,
       success:function(res){
         that.closeSelect();
       }
@@ -208,6 +212,7 @@ Page({
       url: '/pages/order/index',
     })
   },
+  // 组键购买信息
   buildbuyInfo:function(e){
     var addcarinfo = {};
     var goodsinfo = this.data.detail.data.data;
@@ -216,7 +221,9 @@ Page({
     addcarinfo.arrow = this.data.selectName;
     addcarinfo.price = this.data.selectprice;
     addcarinfo.buyNum = this.data.buyNum;
-    addcarinfo.goodsId = goodsinfo.basicInfo.id;
+    addcarinfo.goodsId = goodsinfo.basicInfo.id; 
+    addcarinfo.pic = goodsinfo.basicInfo.pic;
+    addcarinfo.selecttype = this.data.selecttype;
     var buyInfo={}
     if (!buyInfo.list){
       buyInfo.list=[];
