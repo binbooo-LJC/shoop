@@ -1,8 +1,12 @@
 <!--pages/order/index.wxml-->
 <view class='container'>
   <!-- 没有收获地址开始 -->
-    <view class="noAdd" bindtap='add_address'>
-      <view class="add_address">新增加收获地址</view>
+    <view class="noAdd" >
+      <view class="add_address" bindtap='add_address' hidden='{{ishasdefaultaddress?true:false}}'>新增加收获地址</view>
+      <view class="defalut_address"  bindtap='selectaddress' id='{{defaultaddress.id}}'  hidden='{{ishasdefaultaddress?false:true}}'>
+        <view class="address_item">{{defaultaddress.linkMan}} {{defaultaddress.mobile}}</view>
+        <view class="address_detail">{{defaultaddress.address}}</view>     
+      </view>
     </view>
   <!-- 没有收获地址结束 -->
   <!-- 订单详情列表开始 -->

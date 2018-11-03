@@ -16,6 +16,7 @@
    background-size: 16rpx auto,750rpx auto;
    background-color: #fff;
    margin: 20rpx 0 20rpx 0;
+   overflow: hidden;
    }
    .order{
      width: 100%;
@@ -110,6 +111,24 @@
   .order_submit .totle{
     color: #e64340;
     margin-right: 20rpx;
+  }
+  .defalut_address{
+    padding:40rpx 0 40rpx 90rpx;
+    font-size: 28rpx;
+  
+  }
+  .defalut_address{
+    width: 664rpx;
+    background: url(https://cdn.it120.cc/images/weappshop/ico-addr.png) no-repeat 30rpx 50rpx;
+    background-size: 30rpx auto;
+  }
+  .address_detail{
+    color: #888;
+    margin-top: 20rpx;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 24rpx;
   }
 
 

@@ -22,7 +22,7 @@ Page({
   // 获取表单数据
   formSubmit:function(e){
     var that=this;
-    console.log()
+
     var val = e.detail.value
     console.log(e.detail.value.name);
     if (!val.name){
@@ -74,6 +74,7 @@ Page({
       })
       return;
     }
+    console.log()
     var proid = commonCityData.cityData[val.pro].id;
     var cityid = commonCityData.cityData[val.pro].cityList[val.city].id;
     var disid=''
@@ -83,13 +84,17 @@ Page({
     console.log(proid);
     console.log(cityid);
     console.log(disid);
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     wx.request({
       url: url +'/user/shipping-address/add',
       data:{
         token:wx.getStorageSync('token'),
-        provinceId: val.proid,
-        cityId:val.cityid,
-        distric:val.disid,
+        provinceId: proid,
+        cityId: cityid,
+        distric:disid,
         linkMan:val.name,
         address:val.address,
         mobile:val.phone,
@@ -98,7 +103,10 @@ Page({
         isDefault:true
       },
       success:function(res){
-        console.log(res)
+        if(res.data.code==0){
+          wx.hideLoading();
+          wx.navigateBack();
+        }
       }
     })
 

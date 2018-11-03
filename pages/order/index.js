@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-      buyInfo:{}
+      buyInfo:{},
+      ishasdefaultaddress:false,
+      defaultaddress:{},
+
   },
   // 添加地址
   add_address:function(e){
@@ -84,6 +87,12 @@ Page({
             content: '请选择默认地址',
             showCancel: false
           })
+        }else{
+            var defaultaddress=res.data.data;
+            that.setData({
+              ishasdefaultaddress:true,
+              defaultaddress:defaultaddress
+            })
         }
       }
     })
