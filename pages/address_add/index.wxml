@@ -11,7 +11,7 @@
       <view class="item">
         <view class="labelname label">手机号码</view>
         <view class="labelinput">
-          <input type="number" placeholder='11位手机号' maxlength='11'></input>
+          <input type="number" placeholder='11位手机号' maxlength='11' ></input>
         </view>
       </view>
       <view class="item">
