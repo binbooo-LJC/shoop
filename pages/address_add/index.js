@@ -1,5 +1,6 @@
 // pages/address_add/index.js
 var commonCityData = require('../../utils/city.js')
+var unit=require('../../utils/util.js');
 const app = getApp();
 const appdata = app.globalData;
 const url = appdata.app_address + appdata.subDomain;
@@ -16,6 +17,92 @@ Page({
     SelectCity: '请选择',
     SelectDis: '请选择',
     cityIndex:'',
+    hasdis:true,
+  },
+  // 获取表单数据
+  formSubmit:function(e){
+    var that=this;
+    console.log()
+    var val = e.detail.value
+    console.log(e.detail.value.name);
+    if (!val.name){
+        wx.showModal({
+          title: '提示',
+          content: '请填写联系人',
+          showCancel:false
+        })
+        return;
+    }
+    if(!val.phone){
+      wx.showModal({
+        title: '提示',
+        content: '输入电话号码',
+        showCancel: false
+      })
+      return;
+    }
+    console.log(unit.checkPhone(val.phone));
+    if (!unit.checkPhone(val.phone)){
+      wx.showModal({
+        title: '提示',
+        content: '电话输入有误',
+        showCancel:false
+      })
+      return;
+    }
+    if (!val.pro) {
+      wx.showModal({
+        title: '提示',
+        content: '请选择地区',
+        showCancel: false
+      })
+      return;
+    }
+    if (!val.city) {
+      wx.showModal({
+        title: '提示',
+        content: '请选择地区',
+        showCancel: false
+      })
+      return;
+    }
+    if (!val.address) {
+      wx.showModal({
+        title: '提示',
+        content: '请填写详细地址',
+        showCancel: false
+      })
+      return;
+    }
+    var proid = commonCityData.cityData[val.pro].id;
+    var cityid = commonCityData.cityData[val.pro].cityList[val.city].id;
+    var disid=''
+    if(that.data.hasdis){
+      var disid = commonCityData.cityData[val.pro].cityList[val.city].districtList[val.dis].id;
+    }
+    console.log(proid);
+    console.log(cityid);
+    console.log(disid);
+    wx.request({
+      url: url +'/user/shipping-address/add',
+      data:{
+        token:wx.getStorageSync('token'),
+        provinceId: val.proid,
+        cityId:val.cityid,
+        distric:val.disid,
+        linkMan:val.name,
+        address:val.address,
+        mobile:val.phone,
+        code: val.postCode,
+        status:0,
+        isDefault:true
+      },
+      success:function(res){
+        console.log(res)
+      }
+    })
+
+
   },
   bindPro:function(e){
     var that=this;
@@ -37,12 +124,15 @@ Page({
       console.log(disData)
       that.setData({
         SelectCity: SelecCity,
-        disData: disData
+        disData: disData,
+        SelectDis:'请选择',
+        hasdis:true,
       })
     }else{
       that.setData({
         SelectDis: '',
         SelectCity: SelecCity,
+        hasdis:false,
       })
     }
    

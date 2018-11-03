@@ -5,26 +5,26 @@
       <view class="item">
         <view class="labelname label">联系人</view>
         <view class="labelinput">
-          <input placeholder='姓名'></input>
+          <input placeholder='姓名' name="name"></input>
         </view>
       </view>
       <view class="item">
         <view class="labelname label">手机号码</view>
         <view class="labelinput">
-          <input type="number" placeholder='11位手机号' maxlength='11' ></input>
+          <input type="number" placeholder='11位手机号' maxlength='11' name="phone"></input>
         </view>
       </view>
       <view class="item">
         <view class="labelname label">选择地区</view>
         <view class="labelinput">
         
-         <picker class="pick_pro" bindchange='bindPro' range='{{proData}}'>
+         <picker class="pick_pro" bindchange='bindPro' range='{{proData}}' name="pro">
             <view class="picker_pro hui">{{SelectPro}}</view>
          </picker>
-         <picker class="pick_pro" bindchange='bindCity' range='{{cityData}}'>
+         <picker class="pick_pro" bindchange='bindCity' range='{{cityData}}' name="city">
             <view class="picker_pro hui">{{SelectCity}}</view>
          </picker>
-         <picker class="pick_pro" bindchange='bindDis' range='{{disData}}'>
+         <picker class="pick_pro" bindchange='bindDis' range='{{disData}}' name="dis">
             <view class="picker_pro hui">{{SelectDis}}</view>
          </picker>
         </view>
@@ -32,11 +32,11 @@
       <view class="item">
         <view class="labelname label">详细地址</view>
         <view class="labelinput">
-          <input placeholder='街道门牌信息'></input>
+          <input placeholder='街道门牌信息' name="address"></input>
         </view>
       </view>
       <view class="item">
-        <view class="labelname label">邮政编号</view>
+        <view class="labelname label" name="postCode">邮政编号</view>
         <view class="labelinput">
           <input></input>
         </view>

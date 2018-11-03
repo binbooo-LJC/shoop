@@ -16,6 +16,16 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+// checkphone
+function checkPhone(phone){
+ var reg= /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+  if (!reg.test(phone)){
+    return false;
+  }
+  return true;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  checkPhone: checkPhone
 }
