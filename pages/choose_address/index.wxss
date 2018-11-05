@@ -1,0 +1,50 @@
+.address_list{
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.listitem{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 30rpx 0 30rpx 0;
+}
+.address_list .listitem .isdefalut{
+  width: 150rpx;
+  height:100%;
+  text-align: center;
+  line-height: 100%;
+}
+.defaluimg{
+ width: 28rpx;
+ height:20rpx;
+}
+.content{
+  width: 500rpx;
+}
+.address_edit{
+  width: 100rpx;
+}
+.content .conlink,.content .address_detain{
+  width: 100%;
+  font-size: 24rpx;
+}
+.content .conlink{
+  font-size: 28rpx;
+}
+.content .address_detain{
+  color: #888;
+  line-height: 38rpx;
+  margin-top: 10rpx;
+}
+.address_edit{
+  height: 100%;
+  text-align: center;
+}
+.editimg{
+ width: 28rpx;
+ height: 30rpx;
+}
+.add_addres{
+  width: 100%;
+}

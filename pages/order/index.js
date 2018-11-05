@@ -14,9 +14,15 @@ Page({
   },
   // 添加地址
   add_address:function(e){
+    
     wx.navigateTo({
       url: '/pages/address_add/index',
     })
+  },
+  selectaddress:function(e){
+      wx.navigateTo({
+        url: '/pages/choose_address/index'
+      })
   },
   /**
    * 生命周期函数--监听页面加载
