@@ -18,6 +18,7 @@ Page({
     SelectDis: '请选择',
     cityIndex:'',
     hasdis:true,
+    adddetail:{}
   },
   // 获取表单数据
   formSubmit:function(e){
@@ -175,8 +176,63 @@ Page({
     }
     return pickARR;
   },
-  onLoad: function (options) {
-    var that=this;
+  initcityId:function(level,id){
+    for (var i = 0; i < commonCityData.cityData.length;i++){
+      if(level==1){
+        if (commonCityData.cityData[i].id==id){
+          return commonCityData.cityData[i].cityList;
+        }
+      }
+    
+    }
+  },
+  onLoad: function (e) {
+    var that = this;
+    if (e.id) {
+      wx.setNavigationBarTitle({
+        title: '修改地址',
+      })
+      wx.request({
+        url: url + "/user/shipping-address/detail",
+        data:{
+          token:wx.getStorageSync('token'),
+          id:e.id
+        },
+        success:function(res){
+         if(res.data.code==0){
+           var hasdis='';
+           var SelectDis='';
+           if (!res.data.data.areaStr){
+             hasdis = false;
+             SelectDis='';
+           }else{
+             hasdis = false;
+             SelectDis = res.data.data.areaStr;
+           }
+           var proId = res.data.data.provinceId;
+           
+           var cityId = res.data.data.cityId;
+           var disId = res.data.data.areaStr ? res.data.data.areaStr:'';
+           var cityObj = that.initcityId(1,proId);
+           var cityData = that.initCityData(2, cityObj);
+           console.log(cityData);
+           that.setData({
+             adddetail:res.data.data,
+             SelectPro: res.data.data.provinceStr,
+             SelectCity: res.data.data.cityStr,
+             hasdis: hasdis,
+             SelectDis: SelectDis,
+             cityData: cityData
+           })
+         }
+        }
+      })
+    } else {
+      wx.setNavigationBarTitle({
+        title: '新增地址',
+      })
+    }
+  
     console.log(commonCityData)
     console.log(this.initCityData(1,commonCityData.cityData))
     var proData = this.initCityData(1, commonCityData.cityData);
@@ -195,8 +251,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (e) {
+  
   },
 
   /**

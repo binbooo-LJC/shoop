@@ -2,11 +2,11 @@
 <view class="container">
   <!-- 收获地址列表开始 -->
     <view class="address_list">
-      <view class="listitem" wx:for='{{addresslist}}' wx:id='id'>
+      <view class="listitem" wx:for='{{addresslist}}' wx:id='id' wx:key="id">
         <view class="isdefalut">
           <image class="defaluimg" src='../../images/addr-active.png' hidden='{{item.isDefault?false:true}}'></image>
         </view>
-        <view class="content">
+        <view class="content" bindtap='editaddress' id='{{item.id}}'>
             <view class="conlink">{{item.linkMan}}  {{item.mobile}}</view>
             <view class="address_detain">{{item.provinceStr}} {{item.cityStr}} {{item.areaStr? item.areaStr:" "}} {{item.address}}</view>
         </view>
@@ -16,7 +16,7 @@
       </view>
     </view>
   <!-- 收获地址列表结束 -->
-  <view class="add_addres">
+  <view class="add_addres" bindtap='add_addres'>
     添加收获地址
   </view>
 </view>

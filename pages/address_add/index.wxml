@@ -5,13 +5,13 @@
       <view class="item">
         <view class="labelname label">联系人</view>
         <view class="labelinput">
-          <input placeholder='姓名' name="name"></input>
+          <input placeholder='姓名' name="name" value='{{adddetail.linkMan}}'></input>
         </view>
       </view>
       <view class="item">
         <view class="labelname label">手机号码</view>
         <view class="labelinput">
-          <input type="number" placeholder='11位手机号' maxlength='11' name="phone"></input>
+          <input type="number" placeholder='11位手机号' maxlength='11' name="phone"  value="{{adddetail.mobile}}"></input>
         </view>
       </view>
       <view class="item">
@@ -32,13 +32,13 @@
       <view class="item">
         <view class="labelname label">详细地址</view>
         <view class="labelinput">
-          <input placeholder='街道门牌信息' name="address"></input>
+          <input placeholder='街道门牌信息' name="address" value="{{adddetail.address}}"></input>
         </view>
       </view>
       <view class="item">
-        <view class="labelname label" name="postCode">邮政编号</view>
+        <view class="labelname label" >邮政编号</view>
         <view class="labelinput">
-          <input></input>
+          <input name="postCode" value="{{adddetail.code ? adddetail.code:''}}"></input>
         </view>
       </view>
     </view>

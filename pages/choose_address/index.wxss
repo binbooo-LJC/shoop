@@ -1,13 +1,15 @@
 .address_list{
   margin-top: 20rpx;
   background-color: #fff;
-  border-bottom: 1px solid #eee;
+ 
 }
 .listitem{
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 30rpx 0 30rpx 0;
+  padding: 20rpx 0 20rpx 0;
+   border-bottom: 1px solid #eee;
+   margin-left: 20rpx;
 }
 .address_list .listitem .isdefalut{
   width: 150rpx;
@@ -47,4 +49,11 @@
 }
 .add_addres{
   width: 100%;
+  padding: 30rpx 0 30rpx 180rpx;
+  background: #fff url(https://cdn.it120.cc/images/weappshop/add-addr.png) no-repeat 130rpx center;
+  background-size: 30rpx auto;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #ddd;
+  font-size: 32rpx;
 }

@@ -10,7 +10,16 @@ Page({
   data: {
     addresslist:{}
   },
-
+  add_addres:function(e){
+    wx.navigateTo({
+      url: '/pages/address_add/index',
+    })
+  },
+  editaddress:function(e){
+    wx.navigateTo({
+      url: '/pages/address_add/index?id=' + e.currentTarget.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
