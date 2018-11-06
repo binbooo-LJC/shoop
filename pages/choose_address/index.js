@@ -24,18 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    var that=this;
-    wx.request({
-      url: url +'/user/shipping-address/list',
-      data:{token:wx.getStorageSync('token')},
-      success:function(res){
-        if(res.data.code==0){
-          that.setData({
-            addresslist:res.data.data
-          })
-        }
-      }
-    })
+    
   },
 
   /**
@@ -49,7 +38,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.request({
+      url: url + '/user/shipping-address/list',
+      data: { token: wx.getStorageSync('token') },
+      success: function (res) {
+        if (res.data.code == 0) {
+          that.setData({
+            addresslist: res.data.data
+          })
+        }
+      }
+    })
   },
 
   /**

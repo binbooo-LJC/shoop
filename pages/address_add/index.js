@@ -18,14 +18,18 @@ Page({
     SelectDis: '请选择',
     cityIndex:'',
     hasdis:true,
-    adddetail:{}
+    adddetail:{},
+    proval:'',
+    cityval:'',
+    disval:'',
+    pageType:0,
+    id:''
   },
-  // 获取表单数据
+  // 获取表单数据,表单提交
   formSubmit:function(e){
     var that=this;
-
     var val = e.detail.value
-    console.log(e.detail.value.name);
+    console.log(val);
     if (!val.name){
         wx.showModal({
           title: '提示',
@@ -42,7 +46,6 @@ Page({
       })
       return;
     }
-    console.log(unit.checkPhone(val.phone));
     if (!unit.checkPhone(val.phone)){
       wx.showModal({
         title: '提示',
@@ -75,44 +78,67 @@ Page({
       })
       return;
     }
-    console.log()
     var proid = commonCityData.cityData[val.pro].id;
     var cityid = commonCityData.cityData[val.pro].cityList[val.city].id;
-    var disid=''
+    var disid='';
     if(that.data.hasdis){
       var disid = commonCityData.cityData[val.pro].cityList[val.city].districtList[val.dis].id;
+      console.log(disid);
     }
-    console.log(proid);
-    console.log(cityid);
-    console.log(disid);
     wx.showLoading({
       title: '加载中',
       mask:true
     })
-    wx.request({
-      url: url +'/user/shipping-address/add',
-      data:{
-        token:wx.getStorageSync('token'),
-        provinceId: proid,
-        cityId: cityid,
-        distric:disid,
-        linkMan:val.name,
-        address:val.address,
-        mobile:val.phone,
-        code: val.postCode,
-        status:0,
-        isDefault:true
-      },
-      success:function(res){
-        if(res.data.code==0){
+    if(that.data.pageType>0){
+      console.log(that.data.pageType)
+      wx.request({
+        url: url +'/user/shipping-address/update',
+        data:{
+          token:wx.getStorageSync('token'),
+          id:that.data.id,
+          provinceId: proid,
+          cityId: cityid,
+          districtId: disid,
+          linkMan: val.name,
+          address: val.address,
+          mobile: val.phone,
+          code: val.postCode,
+          isDefault: val.isDefault,
+          status: 0,
+        },
+        success:function(res){
+          console.log(res.data);
           wx.hideLoading();
-          wx.navigateBack();
+          if(res.data.code==0){
+            wx.navigateBack();
+          }
         }
-      }
-    })
-
-
+      })
+    }else{
+      wx.request({
+        url: url + '/user/shipping-address/add',
+        data: {
+          token: wx.getStorageSync('token'),
+          provinceId: proid,
+          cityId: cityid,
+          districtId: disid,
+          linkMan: val.name,
+          address: val.address,
+          mobile: val.phone,
+          code: val.postCode,
+          status: 0,
+          isDefault: true
+        },
+        success: function (res) {
+          if (res.data.code == 0) {
+            wx.hideLoading();
+            wx.navigateBack();
+          }
+        }
+      })
+    }
   },
+  // 省份切换
   bindPro:function(e){
     var that=this;
     var SelectPro = that.data.proData[e.detail.value];
@@ -120,17 +146,20 @@ Page({
     that.setData({
       SelectPro:SelectPro,
       cityData:CityData,
-      cityIndex: e.detail.value
+      cityIndex: e.detail.value,
+      SelectCity:'请选择',
+      cityval:'',
+      disval:'',
+      SelectDis:'请选择'
     })
   },
+  // 市区切换
   bindCity:function(e){
     var that=this;
-    console.log(e.detail.value);
     var SelecCity = that.data.cityData[e.detail.value];
-    console.log(commonCityData.cityData[that.data.cityIndex].cityList[e.detail.value].districtList)
+    console.log(SelecCity);
     if (commonCityData.cityData[that.data.cityIndex].cityList[e.detail.value].districtList.length>0){
       var disData = that.initCityData(3, commonCityData.cityData[that.data.cityIndex].cityList[e.detail.value].districtList);
-      console.log(disData)
       that.setData({
         SelectCity: SelecCity,
         disData: disData,
@@ -146,18 +175,18 @@ Page({
     }
    
   },
+  // 区级县切换
   bindDis:function(e){
     var that = this;
-    console.log(e.detail.value);
     var SelectDis = that.data.disData[e.detail.value];
     that.setData({
       SelectDis: SelectDis,
-     
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
+
   initCityData:function(level,obj){
     var pickARR = [];
     if (level==1){
@@ -176,19 +205,56 @@ Page({
     }
     return pickARR;
   },
-  initcityId:function(level,id){
-    for (var i = 0; i < commonCityData.cityData.length;i++){
+  initcityId:function(level,id,obj){
+    for (var i = 0; i < obj.length;i++){
       if(level==1){
-        if (commonCityData.cityData[i].id==id){
-          return commonCityData.cityData[i].cityList;
+        if (obj[i].id==id){
+          return i;
+        }
+      }else if(level==2){
+        if (obj[i].id == id) {
+          return i;
+        }
+      }else if (level==3){
+        if (obj[i].name == id){
+          return i;
         }
       }
     
     }
   },
+  deleteaddress:function(e){
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定删除地址',
+      success:function(res){
+        if(res.confirm){
+          wx.request({
+            url: url + '/user/shipping-address/delete',
+            data: {
+              token: wx.getStorageSync('token'),
+              id: that.data.id
+            },
+            success: function (res) {
+              if(res.data.code==0){
+                wx.navigateBack();
+              }
+            }
+          })
+        }
+      }
+    })
+    
+  },
   onLoad: function (e) {
+    console.log(commonCityData)
     var that = this;
     if (e.id) {
+      that.setData({
+        pageType:1,
+        id:e.id
+      })
       wx.setNavigationBarTitle({
         title: '修改地址',
       })
@@ -206,23 +272,37 @@ Page({
              hasdis = false;
              SelectDis='';
            }else{
-             hasdis = false;
+             hasdis = true;
              SelectDis = res.data.data.areaStr;
            }
+           var disData='';
+           var disindex=''
            var proId = res.data.data.provinceId;
-           
            var cityId = res.data.data.cityId;
            var disId = res.data.data.areaStr ? res.data.data.areaStr:'';
-           var cityObj = that.initcityId(1,proId);
-           var cityData = that.initCityData(2, cityObj);
-           console.log(cityData);
+           var proindex =that.initcityId(1, proId,commonCityData.cityData);
+           var cityobj = commonCityData.cityData[proindex].cityList;
+           var cityData = that.initCityData(2, cityobj);
+           var cityindex = that.initcityId(2, cityId, cityobj);
+           if (disId){
+             var disobj = cityobj[cityindex].districtList;
+             var disData = that.initCityData(3, disobj);
+             disindex = that.initcityId(3, SelectDis, disobj);
+             console.log(disindex)
+           }
            that.setData({
              adddetail:res.data.data,
              SelectPro: res.data.data.provinceStr,
              SelectCity: res.data.data.cityStr,
+             SelectDis: SelectDis,
              hasdis: hasdis,
              SelectDis: SelectDis,
-             cityData: cityData
+             cityData: cityData,
+             disData: disData,
+             cityIndex: proindex,
+             proval: proindex,
+             cityval: cityindex,
+             disval: disindex
            })
          }
         }
@@ -232,9 +312,6 @@ Page({
         title: '新增地址',
       })
     }
-  
-    console.log(commonCityData)
-    console.log(this.initCityData(1,commonCityData.cityData))
     var proData = this.initCityData(1, commonCityData.cityData);
     that.setData({
       proData: proData

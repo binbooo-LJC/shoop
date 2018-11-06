@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -64,6 +64,12 @@
 					"name": "选择收获地址",
 					"pathName": "pages/choose_address/index",
 					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "修改收获地址",
+					"pathName": "pages/address_add/index",
+					"query": "id=38905"
 				}
 			]
 		}
