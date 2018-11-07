@@ -120,10 +120,6 @@ Page({
     }
     // 构造购物车信息
     var addcarinfo=this.buildcarinfo();
-    wx.removeStorage({
-      key: 'cartNum',
-      success: function(res) {},
-    })
     wx.setStorage({
       key: 'cartNum',
       data: addcarinfo,
@@ -154,6 +150,7 @@ Page({
     addcarinfo.goodsId = goodsinfo.basicInfo.id;
     addcarinfo.pic = goodsinfo.basicInfo.pic;
     addcarinfo.selecttype = this.data.selecttype;
+    
     var hasSameid=0;
     if (!cartInfo.shopNum){
       cartInfo.shopNum=0;
@@ -250,6 +247,12 @@ Page({
       return false;
     }
     return true;
+  },
+  go_cart:function(e){
+    console.log(e);
+    wx.switchTab({
+      url: '/pages/cart/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -1,2 +1,45 @@
 <!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="container">
+  <view class="cart_container">
+    <view class="label_title">
+      <view class="label">微商城</view>
+      <view class="car_edit" bindtap='car_edit' hidden='{{hideedit?false:true}}'>编辑</view>
+      <view class="car_edit" bindtap='car_edit' hidden='{{hideedit}}'>完成</view>
+    </view>
+    <view class="cartinfo">
+      <view class="cartItem" wx:for='{{cartinfo.carList}}' wx:key='id' wx:id='id' id="{{item.id}}" data-key="{{index}}">
+        <view class="itemchoose" data-key="{{index}}" bindtap='selectgoods'>
+          <image class="selectimg" src='https://cdn.it120.cc/images/weappshop/gou-red.png' hidden='{{item.select?false:true}}'></image>
+          <image class="selectimg" src='https://cdn.it120.cc/images/weappshop/gou.png' hidden='{{item.select}}'></image>
+        </view>
+        <view class="itemImg">
+          <image class="goodsimg" src="{{item.pic}}"></image>
+        </view>
+        <view class="cartdetail">
+           <view class="detailname">{{item.name}}</view>
+           <view class="detailarrow">{{item.arrow}}</view>
+           <view class="price">￥ {{item.price}}</view>
+            <view class="buynum">
+              <view class="num_jian" data-key="{{index}}" bindtap='numjian'>-</view>
+              <view class="num">{{item.buyNum}}</view>
+              <view class="num_add" data-key="{{index}}" bindtap='numjia'>+</view>
+            </view>
+        </view>
+      </view>
+    </view>
+    <view class="cartbot {{allselect?'active':''}}">
+      <view class="allselect" bindtap='selectall'>
+          全选
+      </view>
+      <view class="totlemoney" hidden='{{hideedit?false:true}}'>
+        合计: 155 
+      </view>
+      <view class="gocache" hidden='{{hideedit?false:true}}'>
+          去结算
+      </view>
+      <view class="deletegoods" hidden='true' hidden='{{hideedit}}'>
+          删除
+      </view>
+    </view>
+  </view>
+</view>

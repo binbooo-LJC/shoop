@@ -1,1 +1,138 @@
 /* pages/cart/index.wxss */
+page{
+  height: 100%;
+}
+.cart_container{
+  width: 100%;
+}
+.label_title{
+  width: 100%;
+  display: flex;
+  font-size: 30rpx;
+  padding: 20rpx 0 20rpx 0;
+  margin-left: 30rpx;
+}
+.label_title .label{
+  width: 80%;
+}
+.label_title .car_edit{
+  color: #666;
+}
+.cartinfo{
+  width: 100%;
+  background-color: #fff;
+}
+.cartItem{
+  width: 100%;
+  display: flex;
+  margin-left: 30rpx;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 20rpx 0 20rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.selectimg{
+  width: 32rpx;
+  height: 28rpx;
+}
+.goodsimg{
+  width: 160rpx;
+  height: 160rpx;
+}
+.itemchoose{
+  width: 8%;
+  text-align: center;
+  margin-right: 20rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.cartdetail{
+  width: 60%;
+  margin-left: 30rpx;
+  overflow: hidden;
+  white-space: wrap;
+}
+.detailname,.detailarrow{
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.price,.buynum{
+  width: 50%;
+  display: inline-block;
+}
+.buynum view{
+  display: inline-block;
+  width: 50rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+.detailarrow{
+  color: #999;
+}
+.num_jian{
+  margin-left: 40rpx;
+  border: 1px solid #eee;
+  }
+  .num{
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  .num_add{
+    border: 1px solid #eee;
+  }
+  .price{
+    color: #e64340;
+  }
+  .cartbot{
+    background-color: #fff;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    background: #fff url(https://cdn.it120.cc/images/weappshop/gou.png) no-repeat 20rpx center;
+    background-size: 28rpx auto;
+  }
+  .active{
+    background: #fff url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat 20rpx center;
+    background-size: 28rpx auto;
+  }
+  .allselect{
+    padding-left: 60rpx;
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 100rpx;
+  }
+  .totlemoney{
+     margin-left: 180rpx;
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 100rpx;
+    color: #e64340;
+    }
+  .gocache{
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 100rpx;
+    color: #fff;
+    width: 200rpx;
+    text-align: center;
+    background-color: #e64340;
+    margin-left: 133rpx;
+  }
+  .deletegoods{
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 100rpx;
+    color: #fff;
+    width: 200rpx;
+    text-align: center;
+    background-color: #ccc;
+    margin-left: 432rpx;
+  }
+

@@ -45,7 +45,7 @@
       <button class="kehu_button" open-type="contact"></button>
       <view class="kehu_text" >客服</view>
     </view>
-    <view class="footer_cart">
+    <view class="footer_cart" bindtap='go_cart'>
       <view class="carNum">({{cartNum}})</view>
       <view class="cart_text">购物车</view>
     </view>
