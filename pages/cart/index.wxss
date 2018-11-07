@@ -135,4 +135,21 @@ page{
     background-color: #ccc;
     margin-left: 432rpx;
   }
-
+.nogoods{
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background: url(https://cdn.it120.cc/images/weappshop/icon-cart.png) no-repeat center 400rpx;
+  background-size: 100rpx auto;
+}
+.goshop{
+  font-size: 28rpx;
+  width: 280rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 10rpx;
+}

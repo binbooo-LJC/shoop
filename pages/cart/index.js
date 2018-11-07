@@ -7,7 +7,8 @@ Page({
   data: {
     cartinfo:{},
     allselect:false,
-    hideedit:true
+    hideedit:true,
+    hascargoods:false
   },
 // 添加数量
   numjian:function(e){
@@ -118,6 +119,50 @@ Page({
       allselect: allselect
     })
   },
+  deletegoods:function(e){
+    var that=this;
+    var cartinfo = that.data.cartinfo;
+    var indexarr = that.deleteItme();
+    for (var i = 0; i < indexarr.length;i++){
+      cartinfo.shopNum -= cartinfo.carList[indexarr[i]].buyNum;
+      cartinfo.carList.splice(indexarr[i],1);
+    }
+    if (!cartinfo.carList.length>0){
+      wx.removeStorage({
+        key: 'cartNum',
+        success: function(res) {
+          that.setData({
+            cartinfo:{},
+            hascargoods:false
+          })
+        },
+      })
+    }else{
+      wx.setStorage({
+        key: 'cartNum',
+        data: cartinfo,
+      })
+      that.setData({
+        cartinfo: cartinfo
+      })
+    }
+  },
+  deleteItme:function(e){
+    var that = this;
+    var cartinfo = that.data.cartinfo;
+    var indexarr=[];
+    for (var i = 0; i < cartinfo.carList.length; i++){
+      if (cartinfo.carList[i].select){
+        indexarr.push(i);
+      }
+    }
+    return indexarr;
+  },
+  goshop:function(e){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
    /**
    * 生命周期函数--监听页面加载
    */
@@ -142,6 +187,7 @@ Page({
       success: function (res) {
         that.setData({
           cartinfo: res.data,
+          hascargoods:true
         })
       },
     })
