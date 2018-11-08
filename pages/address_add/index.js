@@ -28,8 +28,6 @@ Page({
   // 获取表单数据,表单提交
   formSubmit:function(e){
     var that=this;
-    console.log(e);
-    return;
     var val = e.detail.value
     console.log(val);
     if (!val.name){
