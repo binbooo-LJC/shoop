@@ -1,1 +1,67 @@
 /* pages/personal/index.wxss */
+.imgP{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+.top{
+  width: 100%;
+  padding: 50rpx 0;
+  text-align: center;
+  background-color: #e85654;
+}
+.name{
+  color: #fff;
+}
+.cash{
+  margin-top: 20rpx;
+  background-color: #fff;
+  width: 100%;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+  padding-left: 100rpx;
+   border-bottom: 1px solid #eee;
+}
+.despoite{
+  display: flex;
+  margin-top: 20rpx;
+  justify-content:space-between;
+}
+.despoite button{
+  width:260rpx;
+  height: 70rpx;
+  border-radius: 10rpx;
+  line-height: 70rpx;
+  color: #fff;
+  padding: 0;
+  margin: 0
+}
+.up{
+  background-color: #179B16;
+  color:rgba(255, 255, 255, 0.6);
+}
+.down{
+  background-color:#E64340;
+  color:rgba(255, 255, 255, 0.6);
+  }
+  .item{
+    width: 100%;
+    padding-left: 100rpx;
+    background-color: #fff;
+    display: flex;
+    padding-top: 40rpx;
+    padding-bottom: 20rpx;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    font-size: 28rpx;
+    overflow: hidden;
+  }
+  .qiandao{
+    width: 160rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    border: 1px solid #eee;
+    border-radius: 10rpx;
+    margin-left: 373rpx;
+  }

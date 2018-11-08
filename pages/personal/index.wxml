@@ -1,2 +1,32 @@
 <!--pages/personal/index.wxml-->
-<text>pages/personal/index.wxml</text>
+<view class="container">
+  <!-- top -->
+    <view class="top">
+      <view class="pimg">
+        <image class="imgP"></image>
+      </view>
+      <view class="name">LJC</view>
+    </view>
+  <!-- top -->
+  <!--  余额begin -->
+    <view class="cash">
+      <view class="cash_detail">
+        余额0元, 冻结0元
+      </view>
+      <view class="despoite">
+        <button class="up">充值</button>
+        <button class="down">体现</button>
+      </view>
+    </view>
+  <!-- 余额end -->
+  <view class="item">
+    <view class="jifen">
+      当前积分 0
+    </view>
+    <form bindsubmit="goqiandao" report-submit='true'>
+    <button class="qiandao" form-type='submit'>
+      签到
+    </button>
+    </form>
+  </view>
+</view>

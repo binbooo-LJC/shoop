@@ -1,6 +1,6 @@
 <!--pages/address_add/index.wxml-->
 <view class="container">
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <form bindsubmit="formSubmit" bindreset="formReset" report-submit='true'>
     <view class="name main">
       <view class="item">
         <view class="labelname label">联系人</view>

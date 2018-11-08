@@ -1,6 +1,6 @@
 <!--pages/cart/index.wxml-->
 <view class="container">
-  <view class="cart_container" hidden='{{hascargoods}}'>
+  <view class="cart_container" hidden='{{hascargoods?false:true}}'>
     <view class="label_title">
       <view class="label">微商城</view>
       <view class="car_edit" bindtap='car_edit' hidden='{{hideedit?false:true}}'>编辑</view>
@@ -42,7 +42,7 @@
       </view>
     </view>
   </view>
-  <view class="nogoods">
+  <view class="nogoods" hidden='{{hascargoods}}'>
     <view class="goshop" bindtap='goshop'>
       去逛逛
     </view>
