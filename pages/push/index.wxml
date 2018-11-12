@@ -1,6 +1,6 @@
 <view class="page-body">
   <view class="page-section tc">
-    <live-pusher id="pusher" url="rtmp://36359.livepush.myqcloud.com/live/36359_418d4f8df7?bizid=36359&txSecret=19232b3dba0e651e0a1789a69b691a8e&txTime=5BE9A37F" mode="live" autopush bindstatechange="statechange" />
+    <live-pusher id="pusher" url="rtmp://36359.livepush.myqcloud.com/live/36359_ljcljc?bizid=36359&txSecret=024e6ef2407569ab131b1ff47f69011e&txTime=5BE9A37F" mode="SD" autopush bindstatechange="statechange" />
 
     <view class="btn-area">
       <button bindtap="bindStart" class="page-body-button" type="primary">播放推流</button>
