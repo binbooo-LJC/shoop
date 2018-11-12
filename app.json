@@ -10,7 +10,9 @@
     "pages/order/index",
     "pages/address/index",
     "pages/address_add/index",
-    "pages/choose_address/index"
+    "pages/choose_address/index",
+    "pages/zhibo/index",
+    "pages/push/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
