@@ -53,10 +53,6 @@ Page({
   // 点击优惠券
   tabCoupons:function(e){
     console.log(e.currentTarget.id)
-    wx.navigateTo({
-      url: '/pages/push/index',
-    });
-    return;
     let id = e.currentTarget.id;
     wx.request({
       url: url +'/discounts/fetch',
@@ -116,7 +112,7 @@ Page({
     console.log(e.currentTarget.id);
     wx.setStorageSync('goods_id', e.currentTarget.id);
     wx.navigateTo({
-      url: '/pages/zhibo/index',
+      url: '/pages/goods_detail/index?id='+e.currentTarget.id,
     })
   },
   /**

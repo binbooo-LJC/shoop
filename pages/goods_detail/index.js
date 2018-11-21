@@ -257,12 +257,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (e) {
     wx.showShareMenu({
       withShareTicket: true //要求小程序返回分享目标信息
     });
    var that=this;
-   let goods_id=wx.getStorageSync('goods_id');
+   console.log(e);
+   let goods_id=e.id;
    let select_data='选择：';
     wx.request({
       url: url + '/shop/goods/detail',
