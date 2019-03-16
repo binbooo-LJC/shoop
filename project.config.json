@@ -11,7 +11,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.4",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"libVersion": "2.4.0",
 	"appid": "wx7796e8a951ce1440",
 	"projectname": "shop",
 	"isGameTourist": false,
